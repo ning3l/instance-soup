@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from "./Components/NavBar"
+import Jumbotron from "./Components/Jumbotron"
+import Main from "./Components/Main"
+import Footer from "./Components/Footer"
+import {useState, useEffect} from 'react';
+import { client } from './client';
 
 function App() {
+
+  useEffect(() => {
+    client.getEntries()
+    .then(res => {
+      console.log("ITEMS", res.items[0].fields)
+    })
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>SOUP</h1>
+      <NavBar />
+      <Jumbotron />
+      <Main />
+      <Footer />
     </div>
   );
 }
