@@ -26,10 +26,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>SOUP</h1>
       <NavBar />
       <Jumbotron />
-      <Main data={data}/>
+      <div style={{minHeight: "600px"}}>
+        <Main />
+      </div>
       <Footer />
     </div>
   );
