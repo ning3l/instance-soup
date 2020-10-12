@@ -9,19 +9,22 @@ import { client } from './client';
 
 function App() {
 
+  const [data, setData] = useState({});
+
   useEffect(() => {
     client.getEntries()
     .then(res => {
-      console.log("ITEMS", res.items[0].fields)
+      console.log(res.items[0].fields);
     })
-  })
+  },[])
 
   return (
     <div className="App">
-      <h1>SOUP</h1>
       <NavBar />
       <Jumbotron />
-      <Main />
+      <div style={{minHeight: "600px"}}>
+        <Main />
+      </div>
       <Footer />
     </div>
   );
