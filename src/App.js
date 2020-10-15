@@ -9,7 +9,7 @@ import NotFound from "./Components/NotFound"
 import {useState, useEffect} from 'react';
 import { client } from './client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
+import { Switch, Route } from "react-router-dom";
 
 function App() {
 
@@ -32,13 +32,13 @@ function App() {
     };
   });
 
-  // HARDCODED ATM: here, we can set the id to whatever the user selected!
-  const richText = formatted
-        .filter(el => el.id === 2)
-        .map(el => documentToReactComponents(el.info))[0]
+  // // HARDCODED ATM: here, we can set the id to whatever the user selected!
+  // const richText = formatted
+  //       .filter(el => el.id === 4)
+  //       .map(el => documentToReactComponents(el.info))[0]
 
-  // HARDCODED ATM: here, we get the video link back
-  const video = formatted.filter(el => el.id === 2).map(el => el.video)[0]
+  // // HARDCODED ATM: here, we get the video link back
+  // const video = formatted.filter(el => el.id === 4).map(el => el.video)[0]
 
   const levels = formatted.map(el => el.level)
 
@@ -46,7 +46,6 @@ function App() {
     .map(el => [...el.fields.topics])
     .reduce((acc, val) => acc.concat(val), [])
     .filter((el, i, arr) => arr.indexOf(el) === arr.lastIndexOf(el))
-
 
   useEffect(() => {
     client.getEntries()
@@ -62,8 +61,12 @@ function App() {
       <NavBar />
       <Jumbotron />
       <div style={{minHeight: "600px"}}>
-        <Detail richText={richText} video={video}/>
-        {/* <Main formatted={formatted} topics={topics}/> */}
+        {/* <Detail richText={richText} video={video}/> */}
+
+      <Switch>
+        <Route path="/projects/:id?" render={(props) => <Main formatted={formatted} topics={topics} {...props}/>} />
+      </Switch>
+
       </div>
       <Footer />
     </div>
