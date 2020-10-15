@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
-export default function Main({ formatted, topics, match }) {
+export default function Main({ formatted, level, topics, match, setData }) {
 
   const randomColor = () => {
     const colors = ["#F2EC7E", "#EB1D24", "#2F9AD3", "#E67192", "#F0901E", "#4BB13F", "#BC1F2E"]
@@ -19,10 +19,25 @@ export default function Main({ formatted, topics, match }) {
     .filter(el => el.id === Number(match.params.id)) // filter slugs instead
     .map(el => el.video)[0]
 
+    const handleChange = (e) => {
+      e.persist()
+      if (e.target.value !== "Select spiceyness of your project") {
+        setData(prevState => ({
+          ...prevState,
+          levelSelected: e.target.value
+        }))
+      }
+    }
+
+    const onlySpicy = formatted.filter(el => el.level === "easy");
+    console.log("Spicyyyyy", onlySpicy)
+  
+
   return (
     <>
+   {/* CONDITIONAL RENDERING for main / detail page */}
    {match.params.id ? <Detail vid={vid} getRich={getRich}/> :  <div className="container">
-      <select className="custom-select custom-select-lg mb-3">
+      <select className="custom-select custom-select-lg mb-3" onChange={(e) => handleChange(e)}>
         <option selected>Select spiceyness of your project</option>
         <option value="easy">🌶</option>
         <option value="medium">🌶 🌶</option>
@@ -34,6 +49,29 @@ export default function Main({ formatted, topics, match }) {
   {topics.map(el => <button className="btn" style={{backgroundColor: randomColor()}}>{el}</button>)}
         </div>
       </div>
+
+  {/* nested conditional rendering spicyness: */}
+  {level? <div class="row">{formatted.filter(el => el.level === "easy").map(el => {
+    return (
+      <div class="col-sm-3">
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src={el.image}
+                  alt="Card image cap"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{el.title}</h5>
+                  <p className="card-text">{el.abstract}</p>
+                  <Link to={`/projects/${el.id}`} className="btn btn-warning">
+                    see project
+                  </Link>
+
+                </div>
+              </div>
+            </div>
+    )
+  })}</div> : 
 
       <div class="row">
         {formatted.map((el) => {
@@ -48,10 +86,6 @@ export default function Main({ formatted, topics, match }) {
                 <div className="card-body">
                   <h5 className="card-title">{el.title}</h5>
                   <p className="card-text">{el.abstract}</p>
-                  {/* <a href="#" className="btn btn-warning" id={el.id} onClick={(e) => console.log(e.target.id)}>
-                    see project
-                  </a> */}
-
                   <Link to={`/projects/${el.id}`} className="btn btn-warning">
                     see project
                   </Link>
@@ -62,6 +96,8 @@ export default function Main({ formatted, topics, match }) {
           );
         })}
       </div>
+    }
+
     </div>}
     </>
   );

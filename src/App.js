@@ -14,9 +14,11 @@ import { Switch, Route } from "react-router-dom";
 function App() {
 
   const [data, setData] = useState({
-    infos: []
-    // levelSelected: false // you need to spread this info out after each update!
+    infos: [],
+    levelSelected: ""
   });
+
+  console.log("Level from app", data.levelSelected)
 
   const formatted = data.infos.map((el) => {
     return {
@@ -32,14 +34,6 @@ function App() {
     };
   });
 
-  // // HARDCODED ATM: here, we can set the id to whatever the user selected!
-  // const richText = formatted
-  //       .filter(el => el.id === 4)
-  //       .map(el => documentToReactComponents(el.info))[0]
-
-  // // HARDCODED ATM: here, we get the video link back
-  // const video = formatted.filter(el => el.id === 4).map(el => el.video)[0]
-
   const levels = formatted.map(el => el.level)
 
   const topics = data.infos
@@ -50,7 +44,8 @@ function App() {
   useEffect(() => {
     client.getEntries()
     .then(res => {
-      setData(() => ({
+      setData((prevState) => ({
+        ...prevState,
         infos: [...res.items]
       }))
     }).catch(error => console.log(error.message))
@@ -61,10 +56,9 @@ function App() {
       <NavBar />
       <Jumbotron />
       <div style={{minHeight: "600px"}}>
-        {/* <Detail richText={richText} video={video}/> */}
 
       <Switch>
-        <Route path="/projects/:id?" render={(props) => <Main formatted={formatted} topics={topics} {...props}/>} />
+        <Route path="/projects/:id?" render={(props) => <Main formatted={formatted} level={data.levelSelected} topics={topics} setData={setData} {...props}/>} />
       </Switch>
 
       </div>
