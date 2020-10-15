@@ -56,9 +56,11 @@ function App() {
     }).catch(error => console.log(error.message))
   }, [])
 
+
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar formatted={formatted}/>
       <Jumbotron />
       <div style={{minHeight: "600px"}}>
         {/* <Detail richText={richText} video={video}/> */}
