@@ -11,22 +11,17 @@ export default function Main({ formatted, topics, match }) {
     return colors[Math.floor(Math.random()*colors.length)]
   }
 
-  
   const getRich = formatted
   .filter(el => el.id === Number(match.params.id))
   .map(el => documentToReactComponents(el.info))[0]
 
-  const getVid = () => {
-    const hi = formatted
+  const vid = formatted
     .filter(el => el.id === Number(match.params.id)) // filter slugs instead
     .map(el => el.video)[0]
-    return hi
-  }
-
 
   return (
     <>
-   {match.params.id ? <Detail getVid={() => getVid()} getRich={getRich}/> :  <div className="container">
+   {match.params.id ? <Detail vid={vid} getRich={getRich}/> :  <div className="container">
       <select className="custom-select custom-select-lg mb-3">
         <option selected>Select spiceyness of your project</option>
         <option value="easy">🌶</option>
