@@ -9,7 +9,7 @@ import NotFound from "./Components/NotFound"
 import {useState, useEffect} from 'react';
 import { client } from './client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
 
@@ -47,19 +47,20 @@ function App() {
         infos: [...res.items]
       }))
     }).catch(error => console.log(error.message))
+    console.log("spicyness from use", data)
+
   }, [])
 
   return (
     <div className="App">
       <NavBar />
       <Jumbotron />
-      <div style={{minHeight: "600px"}}>
-
       <Switch>
         <Route path="/projects/:id?" render={(props) => <Main formatted={formatted} level={data.levelSelected} topics={topics} setData={setData} {...props}/>} />
+        <Route path="/projects/" component={Footer}/>
+        <Route path="/404" component={NotFound} />
+        <Redirect to="/404" />
       </Switch>
-
-      </div>
       <Footer />
     </div>
   );

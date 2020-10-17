@@ -51,3 +51,38 @@
 .card-text {
   font-family: 'Montserrat', sans-serif;
 }
+
+
+/* ********************* CARDS *********************  */
+
+.notFoundContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.notFound {
+  border-radius: 3px;
+  background-color: blue;
+}
+
+.notFoundText {
+  color: white;
+  font-size: 4em;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.hi {
+  width: 35%;
+  height: 18em;
+  margin-left: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+

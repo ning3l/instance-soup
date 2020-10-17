@@ -11,8 +11,6 @@ export default function Main({ formatted, level, topics, match, setData }) {
     return colors[Math.floor(Math.random()*colors.length)]
   }
 
- 
-
   const getRich = formatted
   .filter(el => el.id === Number(match.params.id))
   .map(el => documentToReactComponents(el.info))[0]
@@ -31,9 +29,6 @@ export default function Main({ formatted, level, topics, match, setData }) {
       }
     }
 
-    const onlySpicy = formatted.filter(el => el.level === "easy");
-    console.log("Spicyyyyy", onlySpicy)
-  
 
   return (
     <>
@@ -53,7 +48,7 @@ export default function Main({ formatted, level, topics, match, setData }) {
       </div>
 
   {/* nested conditional rendering spicyness: */}
-  {level? <div class="row">{formatted.filter(el => el.level === "easy").map(el => {
+  {level? <div class="row">{formatted.filter(el => el.level === level).map(el => {
     return (
       <div class="col-sm-3">
               <div className="card">

@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 import '../App.css';
 import logo from '../instance_soup_logo.png';
 
-export default function NavBar() {
+export default function NavBar( { history } ) {
 
-    let randInt = 0;
-    const handleClick = (e) => {
-      randInt = Math.floor(Math.random() * 8)+1
-      console.log(randInt)
-      // NOT via state !
-      // if randomRamen > Link zu random detailPage
-      return randInt;
-    }
+  console.log("hist from nav", history)
+
+  const handleClick = () => {
+    return Math.floor(Math.random() * 8)
+  }
 
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,14 +41,12 @@ export default function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={`/projects/${randInt}`} onClick={(e) => handleClick()}>
-                Random Ramen
-              </Link>
+              <button type="button" className="btn btn-warning" onClick={() => history.push(`${Math.floor(Math.random()*8) + 1}`)}>random ramen</button>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                {" "}
-                💌 Soupscripe to Newsletter
+                <i class="far fa-envelope"></i>{" "}
+                <span>SOUPscripe to Newsletter</span>
               </a>
             </li>
           </ul>
