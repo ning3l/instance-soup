@@ -11,7 +11,7 @@ export default function Main({ formatted, level, topics, match, setData }) {
     return colors[Math.floor(Math.random()*colors.length)]
   }
 
- 
+
 
   const getRich = formatted
   .filter(el => el.id === Number(match.params.id))
@@ -38,7 +38,7 @@ export default function Main({ formatted, level, topics, match, setData }) {
   return (
     <>
    {/* CONDITIONAL RENDERING for main / detail page */}
-   {match.params.id ? <Detail vid={vid} getRich={getRich}/> :  <div className="container">
+    {match.params.id ? <Detail vid={vid} getRich={getRich}/> :  <div className="container">
       <select className="custom-select custom-select-lg mb-3" onChange={(e) => handleChange(e)}>
         <option selected>Select spiceyness of your project</option>
         <option value="easy">🌶</option>
@@ -48,7 +48,7 @@ export default function Main({ formatted, level, topics, match, setData }) {
 
       <div className="row">
         <div className="col-sm-6">
-  {topics.map(el => <button className="btn" style={{backgroundColor: randomColor()}}>{el}</button>)}
+          {topics.map(el => <button className="btn" style={{backgroundColor: randomColor()}}>{el}</button>)}
         </div>
       </div>
 
@@ -109,5 +109,3 @@ export default function Main({ formatted, level, topics, match, setData }) {
 
     
 }
-
-

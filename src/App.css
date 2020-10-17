@@ -41,6 +41,11 @@
   color: #ffc800;
 }
 
+/* ********************* Jumbotron *********************  */
+
+.jumbo {
+  backgroun-image: url("./jumbo_01.png");
+}
 
 /* ********************* CARDS *********************  */
 .card-title {
