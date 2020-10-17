@@ -75,7 +75,6 @@ export default function Main({ formatted, level, topics, match, setData }) {
     )
   })}</div> : 
 
-      <div class="row">
       <div className="row">
         {formatted.map((el) => {
           return (
