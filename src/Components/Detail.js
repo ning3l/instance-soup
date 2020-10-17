@@ -5,7 +5,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 export default function Detail({ getRich, vid }) {
 
-
     return (
         <div className="container">
             {getRich}
