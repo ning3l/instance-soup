@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../App.css';
-import logo from '../instance_soup_logo.png';
+import logo from '../images/instance_soup_logo.png';
 
 export default function NavBar() {
 
