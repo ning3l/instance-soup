@@ -1,7 +1,18 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../App.css';
 
 export default function NavBar() {
+
+    let randInt = 0;
+    const handleClick = (e) => {
+      randInt = Math.floor(Math.random() * 8)+1
+      console.log(randInt)
+      // NOT via state !
+      // if randomRamen > Link zu random detailPage
+      return randInt;
+    }
+
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
@@ -27,9 +38,9 @@ export default function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to={`/projects/${randInt}`} onClick={(e) => handleClick()}>
                 Random Ramen
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">

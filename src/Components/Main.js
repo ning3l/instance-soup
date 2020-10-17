@@ -11,6 +11,8 @@ export default function Main({ formatted, level, topics, match, setData }) {
     return colors[Math.floor(Math.random()*colors.length)]
   }
 
+ 
+
   const getRich = formatted
   .filter(el => el.id === Number(match.params.id))
   .map(el => documentToReactComponents(el.info))[0]

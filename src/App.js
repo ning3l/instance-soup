@@ -15,10 +15,8 @@ function App() {
 
   const [data, setData] = useState({
     infos: [],
-    levelSelected: ""
+    levelSelected: "",
   });
-
-  console.log("Level from app", data.levelSelected)
 
   const formatted = data.infos.map((el) => {
     return {
