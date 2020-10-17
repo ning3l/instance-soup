@@ -74,14 +74,15 @@ export default function Main({ formatted, level, topics, match, setData }) {
   })}</div> : 
 
       <div class="row">
+      <div className="row">
         {formatted.map((el) => {
           return (
-            <div class="col-sm-3">
+            <div className="col-sm-3">
               <div className="card">
                 <img
                   className="card-img-top"
                   src={el.image}
-                  alt="Card image cap"
+                  alt="Card top"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{el.title}</h5>

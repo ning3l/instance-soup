@@ -1,12 +1,18 @@
 import React from 'react';
 import '../App.css';
+import logo from '../instance_soup_logo.png';
 
 export default function NavBar() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          INSTA(NCE) SOUP
-        </a>
+        <div className="d-flex align-items-center">
+          <a className="navbar-brand" href="#">
+            <div><img src={logo} alt="Logo of the Instance Soup Corporation" className="logo"/></div>
+          </a>
+          <div>
+          <h2 className="text-center">INSTA(NCE) SOUP</h2>
+          </div>
+        </div>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,7 +29,7 @@ export default function NavBar() {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <a className="nav-link" href="#">
-                Home <span class="sr-only">(current)</span>
+                Home <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item">

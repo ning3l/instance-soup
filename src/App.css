@@ -22,19 +22,23 @@
   justify-content: space-between;
 }
 
+.logo {
+  max-width: 5rem;
+}
+
 /* ********************* HEADING IN MAIN *********************  */
 .firstPart {
   font-family: 'MyWebFont';
   font-size: 1em;
   line-height: 1.5em;
-  color: green;
+  color: #00b33f;
 }
 
 .secondPart {
   font-family: 'MyWebFont';
   font-size: 0.5em;
   line-height: 1.5em;
-  color: orange;
+  color: #ffc800;
 }
 
 
