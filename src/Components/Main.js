@@ -3,11 +3,10 @@ import Detail from "./Detail.js";
 import { Link } from "react-router-dom"; 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-
 export default function Main({ formatted, level, topics, match, setData }) {
 
   const randomColor = () => {
-    const colors = ["#F2EC7E", "#EB1D24", "#2F9AD3", "#E67192", "#F0901E", "#4BB13F", "#BC1F2E"]
+    const colors = ["#FFC634", "#FF5020", "#2B8CC1", "#E67192", "#00B349", "#00C654", "#A3585A"]
     return colors[Math.floor(Math.random()*colors.length)]
   }
 
@@ -33,7 +32,7 @@ export default function Main({ formatted, level, topics, match, setData }) {
   return (
     <>
    {/* CONDITIONAL RENDERING for main / detail page */}
-   {match.params.id ? <Detail vid={vid} getRich={getRich}/> :  <div className="container">
+    {match.params.id ? <Detail vid={vid} getRich={getRich}/> :  <div className="container">
       <select className="custom-select custom-select-lg mb-3" onChange={(e) => handleChange(e)}>
         <option selected>Select spiceyness of your project</option>
         <option value="easy">🌶</option>
@@ -43,7 +42,7 @@ export default function Main({ formatted, level, topics, match, setData }) {
 
       <div className="row">
         <div className="col-sm-6">
-  {topics.map(el => <button className="btn" style={{backgroundColor: randomColor()}}>{el}</button>)}
+          {topics.map(el => <button className="btn" style={{backgroundColor: randomColor()}}>{el}</button>)}
         </div>
       </div>
 
@@ -103,5 +102,3 @@ export default function Main({ formatted, level, topics, match, setData }) {
 
     
 }
-
-
