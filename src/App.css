@@ -43,8 +43,21 @@
 
 /* ********************* Jumbotron *********************  */
 
-.jumbo {
-  backgroun-image: url("./jumbo_01.png");
+#jumbo {
+  background-image: url("./images/jumbo_bg.png");
+  background-size: cover;
+}
+
+#eLoveMessage {
+  max-width: 15rem;
+}
+
+#mrEMascot {
+  max-width: 15rem;
+}
+
+.jumbotron p {
+  color: #484848;
 }
 
 /* ********************* CARDS *********************  */

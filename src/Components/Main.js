@@ -7,7 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 export default function Main({ formatted, level, topics, match, setData }) {
 
   const randomColor = () => {
-    const colors = ["#F2EC7E", "#EB1D24", "#2F9AD3", "#E67192", "#F0901E", "#4BB13F", "#BC1F2E"]
+    const colors = ["#FFC634", "#FF5020", "#2B8CC1", "#E67192", "#00B349", "#00C654", "#A3585A"]
     return colors[Math.floor(Math.random()*colors.length)]
   }
 
