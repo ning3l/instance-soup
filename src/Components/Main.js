@@ -3,15 +3,12 @@ import Detail from "./Detail.js";
 import { Link } from "react-router-dom"; 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-
 export default function Main({ formatted, level, topics, match, setData }) {
 
   const randomColor = () => {
     const colors = ["#FFC634", "#FF5020", "#2B8CC1", "#E67192", "#00B349", "#00C654", "#A3585A"]
     return colors[Math.floor(Math.random()*colors.length)]
   }
-
-
 
   const getRich = formatted
   .filter(el => el.id === Number(match.params.id))
@@ -31,9 +28,6 @@ export default function Main({ formatted, level, topics, match, setData }) {
       }
     }
 
-    const onlySpicy = formatted.filter(el => el.level === "easy");
-    console.log("Spicyyyyy", onlySpicy)
-  
 
   return (
     <>
@@ -53,7 +47,7 @@ export default function Main({ formatted, level, topics, match, setData }) {
       </div>
 
   {/* nested conditional rendering spicyness: */}
-  {level? <div class="row">{formatted.filter(el => el.level === "easy").map(el => {
+  {level? <div class="row">{formatted.filter(el => el.level === level).map(el => {
     return (
       <div class="col-sm-3">
               <div className="card">
