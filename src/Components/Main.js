@@ -1,5 +1,6 @@
 import React from "react";
 import Detail from "./Detail.js";
+import Jumbotron from "./Jumbotron";
 import { Link } from "react-router-dom"; 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
@@ -28,28 +29,28 @@ export default function Main({ formatted, level, topics, match, setData }) {
       }
     }
 
-
   return (
     <>
+   {!match.params.id && <Jumbotron/>}
    {/* CONDITIONAL RENDERING for main / detail page */}
     {match.params.id ? <Detail vid={vid} getRich={getRich}/> :  <div className="container">
       <select className="custom-select custom-select-lg mb-3" onChange={(e) => handleChange(e)}>
         <option selected>Select spiceyness of your project</option>
-        <option value="easy">🌶</option>
-        <option value="medium">🌶 🌶</option>
-        <option value="hard">🌶 🌶 🌶</option>
+        <option value="easy">🌶 (easy)</option>
+        <option value="medium">🌶 🌶 (medium)</option>
+        <option value="hard">🌶 🌶 🌶 (hard)</option>
       </select>
 
       <div className="row">
-        <div className="col-sm-6">
-          {topics.map(el => <button className="btn" style={{backgroundColor: randomColor()}}>{el}</button>)}
+        <div className="col-sm-12">
+  {topics.map(el => <button className="btn" style={{backgroundColor: randomColor()}}>{el}</button>)}
         </div>
       </div>
 
   {/* nested conditional rendering spicyness: */}
-  {level? <div class="row">{formatted.filter(el => el.level === level).map(el => {
+  {level? <div class="row mb-3 mt-3">{formatted.filter(el => el.level === level).map(el => {
     return (
-      <div class="col-sm-3">
+      <div class="col-sm-3 mb-3">
               <div className="card">
                 <img
                   className="card-img-top"
@@ -69,10 +70,10 @@ export default function Main({ formatted, level, topics, match, setData }) {
     )
   })}</div> : 
 
-      <div className="row">
+      <div className="row mb-3 mt-3">
         {formatted.map((el) => {
           return (
-            <div className="col-sm-3">
+            <div className="col-sm-3 mb-3">
               <div className="card">
                 <img
                   className="card-img-top"

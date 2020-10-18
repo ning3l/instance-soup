@@ -26,6 +26,14 @@
   max-width: 5rem;
 }
 
+.text-center {
+  font-family: 'Stylish', sans-serif;
+}
+
+.home {
+  font-family: 'Montserrat', sans-serif;
+} 
+
 /* ********************* HEADING IN MAIN *********************  */
 .firstPart {
   font-family: 'MyWebFont';
@@ -44,8 +52,24 @@
 /* ********************* Jumbotron *********************  */
 
 #jumbo {
-  background-image: url("./images/jumbo_bg.png");
+  /* background-image: url("./images/jumbo_bg.png"); */
+  background-image: url("./images/ramen-wp.jpg");
   background-size: cover;
+}
+
+.jumbo {
+  background-color: lightgray;
+  opacity: 90%;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lead {
+  margin-left: 1em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #eLoveMessage {

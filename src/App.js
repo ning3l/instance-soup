@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
 import NavBar from "./Components/NavBar"
-import Jumbotron from "./Components/Jumbotron"
 import Main from "./Components/Main"
-import Detail from "./Components/Detail"
 import Footer from "./Components/Footer"
 import NotFound from "./Components/NotFound"
 import {useState, useEffect} from 'react';
 import { client } from './client';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
@@ -54,10 +51,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Jumbotron />
       <Switch>
         <Route path="/projects/:id?" render={(props) => <Main formatted={formatted} level={data.levelSelected} topics={topics} setData={setData} {...props}/>} />
-        <Route path="/projects/" component={Footer}/>
         <Route path="/404" component={NotFound} />
         <Redirect to="/404" />
       </Switch>

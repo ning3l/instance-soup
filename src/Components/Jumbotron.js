@@ -7,15 +7,12 @@ export default function Jumbotron() {
         <div className="jumbotron jumbotron-fluid" id="jumbo">
             <div className="container" >
                 <div className="row" >
-                    <div className="col-md-7">
+                    <div className="col-md-7 jumbo">
                         <h1 className="display-4">
                         <span className="firstPart">Insta</span>
                         <span className="secondPart">(nce)<br/></span>
                         <span className="firstPart">Soup</span></h1>
-                        <div className="row" >
-                            <br/>
-                            <p className="lead">Hungry for the next coding project? Instance Soup provides you with nourishing app-ideas you can get up and running in no time. Like the carbon based instance soup you know and love, it serves you all the ingredients conveniently. We call it "Tho whole stack in one pack".</p>
-                        </div>
+                        <p className="lead">Hungry for the next coding project? Instance Soup provides you with nourishing app-ideas you can get up and running in no time. Like the carbon based instance soup you know and love, it serves you all the ingredients conveniently. We call it <b>"Tho whole stack in one pack".</b></p>
                     </div>
                     <div className="col-md-5">
                         <div className="row" >
