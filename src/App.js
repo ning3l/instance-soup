@@ -15,6 +15,8 @@ function App() {
     levelSelected: "",
   });
 
+  console.log("ALL", data.infos)
+
   const formatted = data.infos.map((el) => {
     return {
       id: el.fields.id,
@@ -44,8 +46,6 @@ function App() {
         infos: [...res.items]
       }))
     }).catch(error => console.log(error.message))
-    console.log("spicyness from use", data)
-
   }, [])
 
   return (

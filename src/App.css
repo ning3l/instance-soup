@@ -57,10 +57,13 @@
   background-size: cover;
 }
 
-.jumbo {
+.jumbo-row {
   background-color: lightgray;
   opacity: 90%;
-  border-radius: 3px;
+  border-radius: 8px;
+}
+
+.jumbo {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,6 +109,8 @@
 .notFound {
   border-radius: 3px;
   background-color: blue;
+  opacity: 90%;
+  padding: 2em;
 }
 
 .notFoundText {
@@ -117,7 +122,7 @@
 
 .hi {
   width: 35%;
-  height: 18em;
+  height: 21em;
   margin-left: 2em;
   display: flex;
   flex-direction: column;
